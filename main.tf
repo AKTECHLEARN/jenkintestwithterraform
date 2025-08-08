@@ -7,6 +7,7 @@ terraform {
   }
 }
 
+# Azure authentication from variables (provided by Jenkins TF_VAR_* env vars)
 provider "azurerm" {
   subscription_id = var.subscription_id
   client_id       = var.client_id
@@ -16,11 +17,13 @@ provider "azurerm" {
   features {}
 }
 
+# Create a resource group
 resource "azurerm_resource_group" "example" {
   name     = var.resource_group_name
   location = var.location
 }
 
+# Outputs
 output "resource_group_name" {
   value = azurerm_resource_group.example.name
 }

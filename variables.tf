@@ -23,6 +23,7 @@ variable "client_id" {
 variable "client_secret" {
   description = "Azure Service Principal Client Secret"
   type        = string
+  sensitive   = true
 }
 
 variable "tenant_id" {
